@@ -6,7 +6,9 @@ const { exec } = require("child_process");
 
 const routesPath = path.join(__dirname, "..", "routes");
 
-console.log("👀 Watching routes for changes...");
+if (process.env.NODE_ENV !== "production") {
+  console.log("👀 Watching routes for changes...");
+}
 
 const watcher = chokidar.watch(routesPath, {
   persistent: true,
@@ -15,14 +17,19 @@ const watcher = chokidar.watch(routesPath, {
 
 watcher.on("add", (filePath) => {
   console.log(`📄 Route created: ${filePath}`);
-  generateDocs();
-//   generateSwaggerDocsFromRoutes();
+
+  if (process.env.NODE_ENV !== "production") {
+    generateDocs();
+  }
+  //   generateSwaggerDocsFromRoutes();
 });
 
 watcher.on("change", (filePath) => {
   console.log(`✏️ Route edited: ${filePath}`);
-  generateDocs();
-//   generateSwaggerDocsFromRoutes(); // generate paths
+  if (process.env.NODE_ENV !== "production") {
+    generateDocs();
+  }
+  //   generateSwaggerDocsFromRoutes(); // generate paths
 });
 
 function generateDocs() {
