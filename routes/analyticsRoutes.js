@@ -1,4 +1,4 @@
-// routes/users.js
+// routes/analytics.js
 const express = require("express");
 
 const { isAuth, isAdmin } = require("../middleware/Auth");
@@ -12,18 +12,20 @@ const {
 
 const analyticRouter = express.Router();
 
+// Matching analytics routes
 // Admin-only route for accessing analytics
-analyticRouter.get("admin/match", isAuth, isAdmin, getAnalytics);
+analyticRouter.get("/match", isAuth, isAdmin, getAnalytics);
 
 // Admin-only route for accessing analytics by Id
-analyticRouter.get("admin/match/:id", isAuth, isAdmin, getAnalyticById);
+analyticRouter.get("/match/:id", isAuth, isAdmin, getAnalyticById);
 
 // Admin-only route for accessing analytics by userId
-analyticRouter.get("admin/match/:userId", isAuth, isAdmin, getAnalyticByUserId);
+analyticRouter.get("/match/:userId", isAuth, isAdmin, getAnalyticByUserId);
 
+// Registration analytics routes
 // Admin-only route for accessing registration analytics
-analyticRouter.get("admin/register", isAuth, isAdmin, getRegAnalytics);
+analyticRouter.get("/", isAuth, isAdmin, getRegAnalytics);
 
-analyticRouter.get("admin/register/:id", isAuth, isAdmin, getRegAnalyticsById);
+analyticRouter.get("/:id", isAuth, isAdmin, getRegAnalyticsById);
 
 module.exports = analyticRouter;
