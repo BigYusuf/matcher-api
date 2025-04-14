@@ -222,9 +222,7 @@ const getUserMatchResults = async (req, res) => {
     });
 
     if (matchResults.length === 0) {
-      return res
-        .status(404)
-        .send({ message: "No match results found" });
+      return res.status(404).send({ message: "No match results found" });
     }
 
     res.status(200).send({
@@ -245,6 +243,7 @@ const getAllMatches = async (req, res) => {
     const matchRes = await MatchResult.findAll();
 
     res.status(200).send({
+      success: true,
       message: "All match results retrieved successfully",
       data: matchRes,
     });
