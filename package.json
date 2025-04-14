@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "concurrently \"nodemon server.js\" \"node utils/watchRoutes.js\"",
+    "watch:routes": "node utils/watchRoutes.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -53,7 +54,10 @@
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
+    "chokidar": "^4.0.3",
+    "concurrently": "^9.1.2",
     "jest": "^28.1.3",
+    "nodemon": "^3.1.9",
     "supertest": "^6.2.4"
   },
   "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca"

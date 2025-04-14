@@ -17,7 +17,7 @@ userRoute.post("/register", registerUser);
 userRoute.post("/login", loginUser);
 
 // Route for retrieving user's profile
-userRoute.get("/:id", isAuth, getProfile); // Protect match results route with isAuth
+userRoute.get("/:id", isAuth, getProfile ); // Protect match results route with isAuth
 
 // Admin-only route for getting all users
 userRoute.get("/admin", isAuth, isAdmin, getAllUsers);

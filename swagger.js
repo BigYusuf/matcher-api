@@ -1,5 +1,8 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const generateSchemas = require("./utils/generateSequelizeSchemas");
+const publicPaths = require("./swaggerPaths/publicPaths");
+const protectedPaths = require("./swaggerPaths/protectedPaths");
 
 const options = {
   definition: {
@@ -7,20 +10,22 @@ const options = {
     info: {
       title: "Alpha Machining Dynamic API",
       version: "1.0.0",
-      description: "Auto-generated API docs with Swagger + JSDoc"
+      description: "Auto-generated API docs with Swagger + JSDoc",
     },
     components: {
+      schemas: generateSchemas(), // ← Drop generated schemas here
       securitySchemes: {
         bearerAuth: {
           type: "http",
           scheme: "bearer",
-          bearerFormat: "JWT"
-        }
-      }
+          bearerFormat: "JWT",
+        },
+      },
     },
-    security: [{ bearerAuth: [] }]
+    paths: { ...publicPaths, ...protectedPaths },
+    security: [{ bearerAuth: [] }],
   },
-  apis: ["./routes/*.js", "./docs/*.js"] // <== Add the docs folder here
+  apis: ["./routes/*.js", "./docs/*.js"], // <== Add the docs folder here
 };
 
 const specs = swaggerJsdoc(options);

@@ -14,7 +14,7 @@ const analyticRouter = express.Router();
 
 // Matching analytics routes
 // Admin-only route for accessing analytics
-analyticRouter.get("/match", isAuth, isAdmin, getAnalytics);
+analyticRouter.get("/match", isAuth, isAdmin, getAnalytics); 
 
 // Admin-only route for accessing analytics by Id
 analyticRouter.get("/match/:id", isAuth, isAdmin, getAnalyticById);
