@@ -18,6 +18,10 @@
  *         description: Match analytics retrieved
  *       401:
  *         description: Unauthorized or not admin
+ *       404:
+ *         description: Match analytics not found
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -40,6 +44,10 @@
  *         description: Match analytics retrieved
  *       404:
  *         description: Match analytics not found
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -62,6 +70,10 @@
  *         description: Match analytics for user retrieved
  *       404:
  *         description: User or match analytics not found
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -77,6 +89,10 @@
  *         description: Registration analytics retrieved
  *       401:
  *         description: Unauthorized or not admin
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -99,4 +115,8 @@
  *         description: Registration analytics retrieved
  *       404:
  *         description: Registration analytics not found
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */

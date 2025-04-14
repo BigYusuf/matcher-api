@@ -10,7 +10,7 @@
  * /api/users/register:
  *   post:
  *     summary: Register a new user
- *     tags: [Users]
+ *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
@@ -27,12 +27,14 @@
  *             required:
  *               - text
  *               - type
- *               - prompt
+ *
  *     responses:
  *       201:
  *         description: Registered successfully
  *       400:
  *         description: Bad request
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -40,7 +42,7 @@
  * /api/users/login:
  *   post:
  *     summary: Login a user
- *     tags: [Users]
+ *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
@@ -62,6 +64,8 @@
  *         description: Invalid credentials
  *       404:
  *         description: User not found
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -84,6 +88,8 @@
  *         description: Profile retrieved
  *       404:
  *         description: Profile not found
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -99,6 +105,8 @@
  *         description: All users retrieved
  *       401:
  *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -121,4 +129,6 @@
  *         description: User profile retrieved
  *       404:
  *         description: User not found
+ *       500:
+ *         description: Internal Server Error
  */

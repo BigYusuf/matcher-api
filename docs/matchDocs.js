@@ -18,6 +18,8 @@
  *         description: All matches retrieved
  *       401:
  *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -40,6 +42,10 @@
  *         description: Match result retrieved
  *       404:
  *         description: Match not found
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -68,6 +74,10 @@
  *         description: Matching complete
  *       400:
  *         description: Bad request
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
 
 /**
@@ -90,4 +100,8 @@
  *         description: Match results retrieved
  *       404:
  *         description: User or results not found
+ *       401:
+ *         description: Unauthorized or not admin
+ *       500:
+ *         description: Internal Server Error
  */
